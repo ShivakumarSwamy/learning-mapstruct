@@ -4,32 +4,30 @@ import java.util.Objects;
 
 public class Car {
 
-    private String name;
-    private String make;
-    private Integer numberOfSeats;
+    private final String name;
+    private final String make;
+    private final Integer numberOfSeats;
+
+    public Car(String name, String make, Integer numberOfSeats) {
+        this.name = name;
+        this.make = make;
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public static CarBuilder builder() {
+        return new CarBuilder();
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getMake() {
         return make;
     }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
-
     public Integer getNumberOfSeats() {
         return numberOfSeats;
-    }
-
-    public void setNumberOfSeats(Integer numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
     }
 
     @Override

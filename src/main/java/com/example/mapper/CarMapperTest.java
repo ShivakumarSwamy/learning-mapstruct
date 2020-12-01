@@ -7,15 +7,15 @@ public class CarMapperTest {
     private static final Logger LOG = Logger.getLogger(CarMapperTest.class.getSimpleName());
 
     public static void main(String[] args) {
-        CarMapper carMapper = new CarMapperImpl();
+        CarMapper carMapper = CarMapper.INSTANCE;
 
-        Car car = new Car();
-        car.setName("name-1");
-        car.setMake("make-1");
-        car.setNumberOfSeats(1);
-        LOG.info(car.toString());
-
-        CarDto carDto = carMapper.carToCarDto(car);
+        CarDto carDto = new CarDto();
+        carDto.setManufacturer("manufacturer-1");
+        carDto.setName("name-1");
+        carDto.setSeatCount(1);
         LOG.info(carDto.toString());
+
+        Car car = carMapper.carDtoToCar(carDto);
+        LOG.info(car.toString());
     }
 }
